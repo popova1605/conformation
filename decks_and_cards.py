@@ -10,8 +10,9 @@ class Deck:
     field = None
     player = None
     ones = []
-    def __init__(self, field, player, owner, x, y):
-        pass
+    def __init__(self, field=None, owner=1, x=0, y=0):
+        if field:
+            pass
     
     def is_clicked(self, event):
         """Проверяет, попала ли мышь по колоде"""
@@ -21,6 +22,9 @@ class Deck:
         """Создание данной колодой карты, привязывание её follow_mouse к <Motion>
            и find_road к отпусканию кнопки мыши"""
         pass
+
+    def set_player(self, player):
+        Deck.player = player
 
 
 class Card:
@@ -51,6 +55,8 @@ def find_clicked_deck():
 
 def activate_decks(player):
     Deck.field.bind("<Button-1>", find_clicked_deck)
+    goast_deck = Deck()
+    goast_deck.set_player(player)
 
 
 

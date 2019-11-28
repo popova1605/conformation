@@ -43,7 +43,7 @@ class Game:
            """
         pass
     
-    def end_turn(self, event):
+    def end_turn(self):
         """Конец хода.
            Если self.turn == 2, то увеличивает self.max_money на 1,
            записывает self.max_money в поля money обоих элементов players,

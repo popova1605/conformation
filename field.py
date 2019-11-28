@@ -1,5 +1,5 @@
-from matematical_parametrs import Game, Player
-from units_import
+from mathematical_parametrs import Game, Player
+from units import*
 
 fight_distanse = 0
 
@@ -16,7 +16,7 @@ class Buttle_field:
     mana1_im = None
     mana2_im = None
 
-    def __init__(self, root):
+    def __init__(self, canvas):
         """Создаёт всё вышеописанное"""
         pass
 
