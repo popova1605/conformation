@@ -10,23 +10,40 @@ class Buttle_field:
        money1_im, money2_im, mana1_im, mana2_im - объекты соотв. надписей на canvas
     """
     canvas = None
+    v_size = 0
+    h_size = 0
     money1_im = None
     money2_im = None
     mana1_im = None
     mana2_im = None
+    
 
     def __init__(self, canvas, h, w):
         """Создаёт всё вышеописанное"""
-        roads = [Road(]
-        pass
+        self.roads = 0
+        self.roads.append(Road(1/9*h, w, h/6))
+        self.roads.append(Road(3/9*h, w, h/6))
+        self.roads.append(Road(5/9*h, w, h/6))
+        self.canvas = canvas
+        h_size = w
+        v_size = h
+        money1_im = canvas.create_text(w/6, h/20, text = "Money: 0")
+        money2_im = canvas.create_text(w - w/6, h/20, text = "Money: 0")
+        mana1_im = canvas.create_text(w/6, h/10, text = "Mana: 0")
+        mana2_im = canvas.create_text(w - w/6, h/10, text = "Mana: 0")
 
     def move_roads(self):
         """Вызов move_units для всех дорожек"""
-        pass
+        for road in roads:
+            road.move_units()
 
     def set_parametrs(self, game):
         """Изменяет значения text в money1_im, money2_im, mana1_im, mana2_im
            на значения, содержащиеся в game (экз. Game)"""
+        itemconfig(money1_im, text = "Money:" + str(game.players[0].money))
+        itemconfig(money2_im, text = "Money:" + str(game.players[1].money))
+        itemconfig(mana1_im, text = "Mana:"
+                   
         pass
 
     def set_players_money_parametrs(self, player):
@@ -37,7 +54,7 @@ class Buttle_field:
 
 class Road:
     """Дорожка.
-       Содеджит списки персонажей еа ней, рисунок последней положеной карты,
+       Содеджит списки персонажей на ней, рисунок последней положеной карты,
        координату y середины и ширину """
     left_unit_list = []
     right_unit_list = []
@@ -46,7 +63,7 @@ class Road:
     width = 0
     le
 
-    def __init__(self, y, length):
+    def __init__(self, y, length, width):
         pass
 
     def move_units(self):
