@@ -6,21 +6,24 @@ class Player:
     number = 0
     mana = 0
     money = 0
-    
+
     def __init__(self, number, mana, money):
         """Инициализация полей экземпляра класса
            соответствующими полученными значениями"""
-        pass
+        self.mana = mana
+        self.money = money
+        self.number = number
 
     def pay(cost):
         """Вычитает cost из money"""
-        pass
+        Player.money -= cost
 
 
 # константы игры
 start_money = 1  # деньги в начале игры у каждого игрока
-start_mana = 1   # мана в начале игры у каждого игрока
+start_mana = 1  # мана в начале игры у каждого игрока
 additional_mana = 1  # добавка маны после хода
+
 
 class Game:
     """Класс, содержащий численные параметры текущей игры
@@ -32,7 +35,7 @@ class Game:
     players = []
     max_money = 0
     add_mana = 0
-    
+
     def __init__(self):
         """Инициализация игры:
            ход 1-ого,
@@ -41,13 +44,26 @@ class Game:
            записывает в поле add_mana значение additional_mana,
            в поле max_money значение start_money
            """
-        pass
-    
+        player1 = Player(1, start_mana, start_money)
+        player2 = Player(2, start_mana, start_money)
+        Game.players.append(player1)
+        Game.players.append(player2)
+        self.add_mana = additional_mana
+        self.max_money = start_money
+
     def end_turn(self):
         """Конец хода.
            Если self.turn == 2, то увеличивает self.max_money на 1,
            записывает self.max_money в поля money обоих элементов players,
            увеличивает поля mana обоих элементов players на self.add_mana.
            Меняет значение self.turn с 1 на 2 и наоборот """
-        pass
-    
+        if self.turn == 1:
+            self.max_money += 1
+            Game.players[0].money = self.max_money
+            Game.players[0].mana += self.add_mana
+            self.turn = 2
+        if self.turn == 2:
+            self.max_money += 1
+            Game.players[1].money = self.max_money
+            Game.players[1].mana += self.add_mana
+            self.turn = 1

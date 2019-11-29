@@ -1,5 +1,6 @@
 step = 30
 
+
 class Unit:
     """Класс персонажей.
        unit_type - какой персонаж, строка
@@ -21,14 +22,29 @@ class Unit:
 
     def move(self, way):
         """Движение на step в направлении way (way = "left" or "right")"""
-        pass
+        if way == 'right':
+            self.x += step
+        if way == 'left':
+            self.x -= step
 
 
 def fight(unit1, unit2):
+    loosers = []
     """Битва персонажей.
        Из health каждого персоножа вычитается force второго.
-       Если health перс. стало <0, он проиграл.
+       Если health перс. стало <=0, он проиграл.
        Возвращает список проигравших персонажей, если таких нет,
        вызывается рекурсивно"""
-    loosers = [unit2]
+    if unit1.health <= unit2.force and unit2.health <= unit1.force:
+        loosers.append(unit1)
+        loosers.append(unit2)
+    elif unit1.health <= unit2.force and unit2.health >= unit1.force:
+        loosers.append(unit1)
+    elif unit1.health >= unit2.force and unit2.health <= unit1.force:
+        loosers.append(unit2)
+    elif unit1.health >= unit2.force and unit2.health >= unit1.force:
+        unit1.health -= unit2.force
+        unit2.health -= unit1.force
+        loosers.append(fight(unit1, unit2))
     return loosers
+
