@@ -30,10 +30,11 @@ class Deck:
             return False
     
     def create_card(self):
-        """Создание данной колодой карты, привязывание её follow_mouse к <Motion>
-           и find_road к отпусканию кнопки мыши"""
-        #FIXME
-        pass
+        """Создание данной колодой карты, привязывание её move к <Motion>
+                   и find_road к отпусканию кнопки мыши"""
+        card = Card(self)
+        self.field.canvas.bind('<Motion>', card.move)
+        self.field.canvas.bind('<ButtonRelease-1>', card.find_road)
 
 
 class Card:
@@ -52,31 +53,26 @@ class Card:
 
     def move(self, event):
         """Следить за тем, чтобы карта не выходила за пределы экрана и на чужую половину"""
-        if player.number == 1:
-            if (event.x >= 0) and (event.x <= field.w_size/2 - deck_width):
+        if self.player.number == 1:
+            if (event.x >= 0) and (event.x <= self.field.w_size/2 - deck_width):
                 self.x = event.x
-            if (event.y >= 0) and (event.y <= field.h_size/2 - deck_height):
+            if (event.y >= 0) and (event.y <= self.field.h_size/2 - deck_height):
                 self.y = event.y
         else:
-            if (event.x >= field.w_size/2) and (event.x <= field.w_size - deck_width):
+            if (event.x >= self.field.w_size/2) and (event.x <= self.field.w_size - deck_width):
                 self.x = event.x
-            if (event.y >= field.h_size/2) and (event.y <= field.h_size - deck_height):
+            if (event.y >= self.field.h_size/2) and (event.y <= self.field.h_size - deck_height):
                 self.y = event.y
-
-    @staticmethod
-    def follow_mouse(event):
-        """Движение за мышью"""
-        field.canvas.bind('<Motion>', Card.move)
 
     def find_road(self, event):
         """Перебирает дорожки, проверяя на какой находится центр карты,
                    вызывает для неё catch_card(self), отвязывает мышь
                    и карта умирает, если дорожки не нашлось"""
         b = False
-        for i in range field.roads:
-            if ((field.roads[i].y + field.roads[i].width >= event.y)
-                    and (field.roads[i].y - field.roads[i].width < event.y)):
-                  field.roads[i].catch_card(self)
+        for i in self.field.roads:
+            if ((self.field.roads[i].y + self.field.roads[i].width >= event.y)
+                    and (self.field.roads[i].y - self.field.roads[i].width < event.y)):
+                self.field.roads[i].catch_card(self)
                 b = True
         if not b:
             del self
@@ -86,6 +82,7 @@ def find_clicked_deck():
     for deck in Deck.ones:
         if deck.is_clicked() and deck.owner == deck.player.number and cost(deck.unit_type) <= deck.player.money:
             deck.create_card()
+
 
 def activate_decks(player):
     Deck.field.bind("<Button-1>", find_clicked_deck)
