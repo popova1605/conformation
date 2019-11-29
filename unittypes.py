@@ -12,7 +12,6 @@ def cost(unit_type):
 def card_image(unit_type, canvas, coords):
     """Объект картинки на карте"""
     if unit_type == "unknown_type":
-        image = [canvas.create_oval(0,0,0,0)]
+        image = [canvas.create_oval(0, 0, 0, 0)]
     return image
-
 # etc.

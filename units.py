@@ -15,10 +15,10 @@ class Unit:
     y = 0
 
     def __init__(self, unit_type, x, y):
+
         """Присваивает переданные значения полям экземпляра self,
-           force, health и image получает по unit_type (FIXME вписать в unittypes.py
+           force, health и image получает по unit_type (FIXME вп0исать в unittypes.py
            нужные функции"""
-        pass
 
     def move(self, way):
         """Движение на step в направлении way (way = "left" or "right")"""
@@ -45,6 +45,6 @@ def fight(unit1, unit2):
     elif unit1.health >= unit2.force and unit2.health >= unit1.force:
         unit1.health -= unit2.force
         unit2.health -= unit1.force
-        loosers.append(fight(unit1, unit2))
+        loosers = (fight(unit1, unit2))
     return loosers
 
