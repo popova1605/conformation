@@ -9,15 +9,15 @@ class Buttle_field:
        canvas - виджет Canvas
        money1_im, money2_im, mana1_im, mana2_im - объекты соотв. надписей на canvas
     """
-    roads = []
     canvas = None
     money1_im = None
     money2_im = None
     mana1_im = None
     mana2_im = None
 
-    def __init__(self, canvas):
+    def __init__(self, canvas, h, w):
         """Создаёт всё вышеописанное"""
+        roads = [Road(]
         pass
 
     def move_roads(self):
@@ -44,8 +44,9 @@ class Road:
     last_card_im = None
     y = 0
     width = 0
+    le
 
-    def __init__(self, y):
+    def __init__(self, y, length):
         pass
 
     def move_units(self):
