@@ -17,7 +17,7 @@ class Buttle_field:
 
     def __init__(self, canvas, h, w):
         """Создаёт всё вышеописанное"""
-        roads = [Road(]
+        roads = [Road()]
         pass
 
     def move_roads(self):
@@ -59,9 +59,3 @@ class Road:
         """Добавление новой карты.
            Смена last_card_im. Создание unit"""
         pass
-
-    
-    
-    
-
-    
