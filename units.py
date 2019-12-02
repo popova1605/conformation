@@ -1,4 +1,5 @@
-step = 30
+import graphics
+import time
 
 
 class Unit:
@@ -10,7 +11,11 @@ class Unit:
     unit_type = ""
     health = 0
     force = 0
-    image = None
+    attack_image = []
+    move_image = []
+    death_image =[]
+    card_image = []
+    step = 0
     x = 0
     y = 0
 
@@ -20,18 +25,29 @@ class Unit:
            force, health и image получает по unit_type (FIXME вп0исать в unittypes.py
            нужные функции"""
 
-    def move(self, way):
+    def move(self, way, unitlist):
         """Движение на step в направлении way (way = "left" or "right")"""
+        giflist = graphics.animation(Unit.move_image)
         if way == 'right':
-            self.x += step
+            for gif in giflist:
+                canv = graphics.canvas(Unit.x, Unit.y, Unit.move_image)
+                canv.create_image(graphics.Height(Unit.move_image)/2, graphics.Width(Unit.move_image)/2, image=gif)
+                time.sleep(0.1)
+                self.x += Unit.step/graphics.amount(Unit.move_image)
+                canv.delete(all)
         if way == 'left':
-            self.x -= step
+            for gif in giflist:
+                canv = graphics.canvas(Unit.x, Unit.y, Unit.move_image)
+                canv.create_image(graphics.Height(Unit.move_image) / 2, graphics.Width(Unit.move_image) / 2, image=gif)
+                time.sleep(0.1)
+                self.x -= Unit.step/graphics.amount(Unit.move_image)
+                canv.delete(all)
 
 
 def fight(unit1, unit2):
     loosers = []
     """Битва персонажей.
-       Из health каждого персоножа вычитается force второго.
+       Из health каждого персонажа вычитается force второго.
        Если health перс. стало <=0, он проиграл.
        Возвращает список проигравших персонажей, если таких нет,
        вызывается рекурсивно"""
