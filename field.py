@@ -63,7 +63,7 @@ class Road:
     right_unit_list = []
     last_card_im = None
     y = 0
-    width = 0 #полная ширина
+    width = 0     # полная ширина
 
     def __init__(self, y, length, width):
         self.y = y
