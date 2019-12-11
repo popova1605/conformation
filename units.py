@@ -25,7 +25,7 @@ class Unit:
            force, health и image получает по unit_type (FIXME вп0исать в unittypes.py
            нужные функции"""
 
-    def move(self, way, unitlist):
+    def move(self, way):
         """Движение на step в направлении way (way = "left" or "right")"""
         giflist = graphics.animation(Unit.move_image)
         if way == 'right':
