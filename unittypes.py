@@ -14,8 +14,7 @@ def cost(unit_type):
 def attack(unit_type):
     """Объект картинки на карте"""
     if unit_type == "":
-        image = ['rogue_run_1_0.png', 'rogue_run_1_1.png', 'rogue_run_1_2.png', 'rogue_run_1_3.png', 'rogue_run_1_4.png',
-                 'rogue_run_1_5.png']
+        image = []
     return image
 
 
@@ -27,7 +26,7 @@ def death(unit_type):
 
 def walk(unit_type):
     if unit_type == "":
-        image = []
+        image = ['rogue_run_1_0.png', 'rogue_run_1_1.png', 'rogue_run_1_2.png', 'rogue_run_1_3.png']
     return image
 
 
@@ -51,7 +50,7 @@ def force(unit_type):
 
 def step(unit_type):
     if unit_type == "":
-        step = 0
+        step = 100
     return step
 
 
