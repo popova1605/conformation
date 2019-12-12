@@ -4,6 +4,7 @@ from field import*
 import tkinter as tk
 import fileinput
 
+
 def main():
     global root, canvas, start_button
     root = tk.Tk()
@@ -14,6 +15,7 @@ def main():
     start_button.pack()
     start_button.bind("<Button-1>", new_game)
     root.mainloop()
+
 
 def new_game(event):
     global root, canvas, game, bf, turn_button
@@ -28,6 +30,7 @@ def new_game(event):
     turn_button.bind("<Button-1>", new_turn)
     activate_decks(game.players[0])
     bf.set_parametrs(game)
+
 
 def new_turn(event):
     turn_button.bind("<Button-1>", "")
@@ -49,6 +52,7 @@ def new_turn(event):
         else:
             activate_decks(game.players[1])
     turn_button.bind("<Button-1>", new_turn)
+
 
 def finish_game():
     global game, bf

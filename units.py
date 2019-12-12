@@ -2,6 +2,7 @@ import graphics
 import testgr
 import unittypes
 
+
 class Unit:
     """Класс персонажей.
        unit_type - какой персонаж, строка

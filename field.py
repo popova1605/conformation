@@ -30,14 +30,12 @@ class Buttle_field:
         self.roads.append(Road(root, 3/9*h, w, h/6))
         self.roads.append(Road(root, 5/9*h, w, h/6))
         self.canvas = canvas
-#-------------------------------------------------------
         canvas.create_line(0,1/9*h+h/12,800,1/9*h+h/12)
         canvas.create_line(0,1/9*h-h/12,800,1/9*h-h/12)
         canvas.create_line(0,3/9*h+h/12,800,3/9*h+h/12)
         canvas.create_line(0,3/9*h-h/12,800,3/9*h-h/12)
         canvas.create_line(0,5/9*h+h/12,800,5/9*h+h/12)
         canvas.create_line(0,5/9*h-h/12,800,5/9*h-h/12)
-#--------------------------------------------------------------
         self.h_size = w
         self.v_size = h
         self.money1_im = canvas.create_text(w/6, h/20, text = "Money: 0")
