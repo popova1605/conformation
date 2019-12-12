@@ -6,23 +6,22 @@ class Player:
     number = 0
     mana = 0
     money = 0
+    health = 0
 
-    def __init__(self, number, mana, money):
+    def __init__(self, number, mana, money, health):
         """Инициализация полей экземпляра класса
            соответствующими полученными значениями"""
         self.mana = mana
         self.money = money
         self.number = number
-
-    def pay(cost):
-        """Вычитает cost из money"""
-        Player.money -= cost
+        self.health = health
 
 
 # константы игры
 start_money = 1  # деньги в начале игры у каждого игрока
 start_mana = 1  # мана в начале игры у каждого игрока
 additional_mana = 1  # добавка маны после хода
+start_health = 10 #
 
 
 class Game:
@@ -44,8 +43,8 @@ class Game:
            записывает в поле add_mana значение additional_mana,
            в поле max_money значение start_money
            """
-        player1 = Player(1, start_mana, start_money)
-        player2 = Player(2, start_mana, start_money)
+        player1 = Player(1, start_mana, start_money, start_health)
+        player2 = Player(2, start_mana, start_money, start_health)
         Game.players.append(player1)
         Game.players.append(player2)
         self.add_mana = additional_mana
@@ -62,8 +61,7 @@ class Game:
             Game.players[0].money = self.max_money
             Game.players[0].mana += self.add_mana
             self.turn = 2
-        if self.turn == 2:
-            self.max_money += 1
+        else:
             Game.players[1].money = self.max_money
             Game.players[1].mana += self.add_mana
             self.turn = 1

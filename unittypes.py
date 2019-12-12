@@ -5,10 +5,10 @@
 from tkinter import*
 
 
-def mana_cost(unit_type):
+def cost(unit_type):
     """Стоимость"""
     if unit_type == "":
-        return 0
+        return 1
 
 
 def attack(unit_type):
