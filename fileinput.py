@@ -1,6 +1,6 @@
 
 def save_game(game, buttle_field):
-    '''Сохраняет текущее состояние игры в файл last_game.txt
+    ''' Сохраняет текущее состояние игры в файл last_game.txt
        предполагаемый формат
        turn
        money1

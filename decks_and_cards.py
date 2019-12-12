@@ -6,6 +6,7 @@ import testgr
 deck_height = 60
 deck_width = 40
 
+
 class Deck:
     """Колода.
         ones - СТАТИЧЕСКАЯ переменная
@@ -29,7 +30,6 @@ class Deck:
         self.y = y
         self.im = testgr.ca(field.canvas, x, y) #TEST
         Deck.ones.append(self)
-        
 
     def is_clicked(self, event):
         """Проверяет, попала ли мышь по колоде"""
