@@ -39,3 +39,9 @@ def animation(imagelist):
         photo = PhotoImage(file=imagefile)
         giflist.append(photo)
     return giflist
+
+
+def init_sprite(x, y, canvas, gif):
+    sprite = canvas.create_image(x, y, image=gif)
+    canvas.pack()
+    return sprite

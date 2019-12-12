@@ -1,6 +1,7 @@
 import graphics
 import time
 import testgr
+import unittypes
 
 
 class Unit:
@@ -10,14 +11,15 @@ class Unit:
        force - сила
        image - картинка"""
     unit_type = ""
-    health = 0
-    force = 0
-    attack_image = []
-    move_image = []
-    death_image =[]
-    card_image = []
-    step = 50
+    health = unittypes.health(unit_type)
+    force = unittypes.force(unit_type)
+    attack_image = unittypes.attack(unit_type)
+    move_image = unittypes.walk(unit_type)
+    death_image = unittypes.death(unit_type)
+    card_image = unittypes.card(unit_type)
+    step = unittypes.card(unit_type)
     test_image = None
+    first_image = []
     x = 0
     y = 0
     canv = None
@@ -26,17 +28,26 @@ class Unit:
         """Присваивает переданные значения полям экземпляра self,
            force, health и image получает по unit_type (FIXME вп0исать в unittypes.py
            нужные функции"""
+        self.unit_type = unit_type
         self.x = x
         self.y = y
         self.canv = canvas
-        self.test_image = testgr.un(self.canv, x, y) # TEST
+        self.first_image = graphics.animation(self.move_image)[0]
+        self.image = graphics.init_sprite(self.x, self.y, self.canv, self.first_image)  # TEST
 
     def move(self, way):
+        giflist = graphics.animation(Unit.move_image)
         if way == 'right':
-            self.x += self.step
+            for gif in giflist:
+                image = gif
+                self.x += self.step/graphics.amount(Unit.move_image)
+                self.canv.coords(self.image, self.x, self.y)
+                self.canv.itemconfig(self.image, image=image)
+                time.sleep(0.1)
+
         else:
             self.x -= self.step
-        testgr.move_un(self.canv, self.test_image, self.x, self.y) # TEST
+
         """Движение на step в направлении way (way = "left" or "right")"""
         """giflist = graphics.animation(Unit.move_image)
         if way == 'right':
