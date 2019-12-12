@@ -1,7 +1,6 @@
 # Вся графика - здесь!!!
 from tkinter import*
 
-
 def amount(imagelist):
     i = 0
     giflist = animation(imagelist)
@@ -45,3 +44,14 @@ def init_sprite(x, y, canvas, gif):
     sprite = canvas.create_image(x, y, image=gif)
     canvas.pack()
     return sprite
+
+
+def move_sprite(x, y, canvas, image, imagefile):
+    canvas.coords(image, x, y)
+    canvas.itemconfig(image, image=imagefile)
+
+
+
+
+
+

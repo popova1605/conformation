@@ -1,5 +1,4 @@
 import graphics
-import time
 import testgr
 import unittypes
 
@@ -11,19 +10,15 @@ class Unit:
        image - картинка"""
     root = None
     unit_type = ""
-    health = unittypes.health(unit_type)
-    force = unittypes.force(unit_type)
-    attack_image = unittypes.attack(unit_type)
-    move_image = unittypes.walk(unit_type)
-    death_image = unittypes.death(unit_type)
-    card_image = unittypes.card(unit_type)
-    step = unittypes.card(unit_type)
+    health = 0
+    force = 0
+    step = 50
     test_image = None
-    first_image = []
+    first_image = None
     x = 0
     y = 0
     canv = None
-    
+
     def __init__(self, root, canvas, unit_type, x, y):
         """Присваивает переданные значения полям экземпляра self,
            force, health и image получает по unit_type (FIXME вп0исать в unittypes.py
@@ -33,39 +28,32 @@ class Unit:
         self.x = x
         self.y = y
         self.canv = canvas
-        self.first_image = graphics.animation(self.move_image)[0]
+        self.first_image = graphics.animation(unittypes.walk(self.unit_type))[0]
         self.image = graphics.init_sprite(self.x, self.y, self.canv, self.first_image)
 
     def move(self, way):
-        giflist = graphics.animation(Unit.move_image)
+        giflist = graphics.animation(unittypes.walk(self.unit_type))
         if way == 'right':
-            for gif in giflist:
-                self.canv.delete(self.image)
-                image = gif
-                self.x += self.step
-                self.image = graphics.init_sprite(self.x, self.y, self.canv, gif)
-
-
+            self.x += self.step
+            self.ex_animation()
 
         else:
             self.x -= self.step
+            self.ex_animation()
 
-        """Движение на step в направлении way (way = "left" or "right")"""
-        """giflist = graphics.animation(Unit.move_image)
-        if way == 'right':
-            for gif in giflist:
-                canv = graphics.canvas(Unit.x, Unit.y, Unit.move_image)
-                canv.create_image(graphics.Height(Unit.move_image)/2, graphics.Width(Unit.move_image)/2, image=gif)
-                time.sleep(0.1)
-                self.x += Unit.step/graphics.amount(Unit.move_image)
-                canv.delete(all)
-        if way == 'left':
-            for gif in giflist:
-                canv = graphics.canvas(Unit.x, Unit.y, Unit.move_image)
-                canv.create_image(graphics.Height(Unit.move_image) / 2, graphics.Width(Unit.move_image) / 2, image=gif)
-                time.sleep(0.1)
-                self.x -= Unit.step/graphics.amount(Unit.move_image)
-                canv.delete(all)"""
+    def ex_animation():
+        global iter
+        st = step / len(photolist)
+        photo = photolist[iter]
+        # canvas.itemconfig(image, image=photo)
+        canvas.move(image, st, 0)
+        iter += 1
+        if iter != len(photolist):
+            root.after(200, ex_animation)
+        else:
+            canvas.itemconfig(image, image=photolist[0])
+            iter = 0
+
     def win(self):
         testgr.die(self.canv, self.test_image)  # TEST
 
