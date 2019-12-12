@@ -10,12 +10,19 @@ def save_game(game, buttle_field):
        mana2
        health1
        health2
+       buttle_field.money1_im
+       buttle_field.money2_im
+       buttle_field.mana1_im
+       buttle_field.mana2_im
+       buttle_field.health1_im
+       buttle_field.health2_im
+       buttle_field.roads
 
-       
        """
     f = open('last_game.txt', 'w')
-    f.write(game.turn + '\n' + game.money1 + '\n' + game.money2 + '\n' + game.max_money + '\n' + game.mana1
-            + '\n' + game.mana2 + '\n' + game.health1 + '\n' + game.health2)
+    f.write(game.turn + '\n' + game.players[0].money + '\n' + game.players[1].money + '\n' + game.max_money + '\n'
+            + game.players[0].mana + '\n' + game.players[1].mana + '\n' + game.players[0].health + '\n'
+            + game.players[1].health)
     f.close()
 
 

@@ -79,8 +79,6 @@ class Buttle_field:
             self.canvas.itemconfig(self.mana2_im, text="Mana:" + str(player.mana))
             self.canvas.itemconfig(self.health2_im, text="Health:" + str(player.health))
 
-    
-
 
 class Road:
     """Дорожка.
