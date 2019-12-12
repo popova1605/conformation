@@ -7,43 +7,43 @@ from tkinter import*
 
 def cost(unit_type):
     """Стоимость"""
-    if unit_type == "":
+    if unit_type == "rogue":
         return 1
 
 
 def attack(unit_type):
     """Объект картинки на карте"""
-    if unit_type == "":
+    if unit_type == "rogue":
         image = []
     return image
 
 
 def death(unit_type):
-    if unit_type == "":
+    if unit_type == "rogue":
         image = []
     return image
 
 
 def walk(unit_type):
-    if unit_type == "":
+    if unit_type == "rogue":
         image = ['rogue_run_1_0.png', 'rogue_run_1_1.png', 'rogue_run_1_2.png', 'rogue_run_1_3.png']
     return image
 
 
 def card(unit_type):
-    if unit_type == "":
+    if unit_type == "rogue":
         image = 0
     return image
 
 
 def health(unit_type):
-    if unit_type == "":
+    if unit_type == "rogue":
         health = 0
     return health
 
 
 def force(unit_type):
-    if unit_type == "":
+    if unit_type == "rogue":
         force = 0
     return force
 
