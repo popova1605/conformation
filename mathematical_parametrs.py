@@ -21,7 +21,7 @@ class Player:
 start_money = 1  # деньги в начале игры у каждого игрока
 start_mana = 1  # мана в начале игры у каждого игрока
 additional_mana = 1  # добавка маны после хода
-start_health = 10 #
+start_health = 1 #
 
 
 class Game:
@@ -45,8 +45,9 @@ class Game:
            """
         player1 = Player(1, start_mana, start_money, start_health)
         player2 = Player(2, start_mana, start_money, start_health)
-        Game.players.append(player1)
-        Game.players.append(player2)
+        self.players = []
+        self.players.append(player1)
+        self.players.append(player2)
         self.add_mana = additional_mana
         self.max_money = start_money
 
@@ -58,10 +59,21 @@ class Game:
            Меняет значение self.turn с 1 на 2 и наоборот """
         if self.turn == 1:
             self.max_money += 1
-            Game.players[0].money = self.max_money
-            Game.players[0].mana += self.add_mana
+            self.players[0].money = self.max_money
+            self.players[0].mana += self.add_mana
             self.turn = 2
         else:
-            Game.players[1].money = self.max_money
-            Game.players[1].mana += self.add_mana
+            self.players[1].money = self.max_money
+            self.players[1].mana += self.add_mana
             self.turn = 1
+
+    def check_fail(self):
+        if self.players[0].health <= 0 and self.players[1].health <= 0:
+            return 3
+        elif self.players[0].health <= 0:
+            return 2
+        elif self.players[1].health <= 0:
+            return 1
+        else:
+            return 0
+            
