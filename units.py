@@ -3,13 +3,13 @@ import time
 import testgr
 import unittypes
 
-
 class Unit:
     """Класс персонажей.
        unit_type - какой персонаж, строка
        health - здоровье
        force - сила
        image - картинка"""
+    root = None
     unit_type = ""
     health = unittypes.health(unit_type)
     force = unittypes.force(unit_type)
@@ -23,27 +23,29 @@ class Unit:
     x = 0
     y = 0
     canv = None
-
-    def __init__(self, canvas, unit_type, x, y):
+    
+    def __init__(self, root, canvas, unit_type, x, y):
         """Присваивает переданные значения полям экземпляра self,
            force, health и image получает по unit_type (FIXME вп0исать в unittypes.py
            нужные функции"""
+        self.root = root
         self.unit_type = unit_type
         self.x = x
         self.y = y
         self.canv = canvas
         self.first_image = graphics.animation(self.move_image)[0]
-        self.image = graphics.init_sprite(self.x, self.y, self.canv, self.first_image)  # TEST
+        self.image = graphics.init_sprite(self.x, self.y, self.canv, self.first_image)
 
     def move(self, way):
         giflist = graphics.animation(Unit.move_image)
         if way == 'right':
             for gif in giflist:
+                self.canv.delete(self.image)
                 image = gif
-                self.x += self.step/graphics.amount(Unit.move_image)
-                self.canv.coords(self.image, self.x, self.y)
-                self.canv.itemconfig(self.image, image=image)
-                time.sleep(0.1)
+                self.x += self.step
+                self.image = graphics.init_sprite(self.x, self.y, self.canv, gif)
+
+
 
         else:
             self.x -= self.step

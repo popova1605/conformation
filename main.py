@@ -19,7 +19,7 @@ def new_game(event):
     global root, canvas, game, bf, turn_button
     canvas.delete(ALL)
     start_button.pack_forget()
-    bf = Buttle_field(canvas, 600, 800)
+    bf = Buttle_field(root, canvas, 600, 800)
     game = Game()
     d1 = Deck(bf, 1, 40, 500)
     d2 = Deck(bf, 2, 760, 500)

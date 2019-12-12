@@ -50,7 +50,7 @@ def force(unit_type):
 
 def step(unit_type):
     if unit_type == "":
-        step = 100
+        step = 200
     return step
 
 

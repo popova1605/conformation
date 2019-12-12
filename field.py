@@ -23,12 +23,12 @@ class Buttle_field:
     health1_im = None
     health2_im = None
 
-    def __init__(self, canvas, h, w):
+    def __init__(self, root, canvas, h, w):
         """Создаёт всё вышеописанное"""
         self.roads = []
-        self.roads.append(Road(1/9*h, w, h/6))
-        self.roads.append(Road(3/9*h, w, h/6))
-        self.roads.append(Road(5/9*h, w, h/6))
+        self.roads.append(Road(root, 1/9*h, w, h/6))
+        self.roads.append(Road(root, 3/9*h, w, h/6))
+        self.roads.append(Road(root, 5/9*h, w, h/6))
         self.canvas = canvas
 #-------------------------------------------------------
         canvas.create_line(0,1/9*h+h/12,800,1/9*h+h/12)
@@ -93,8 +93,10 @@ class Road:
     begin = 30
     end = 770
     width = 0     # полная ширина
+    root = None
 
-    def __init__(self, y, length, width):
+    def __init__(self, root,  y, length, width):
+        self.root = root
         self.y = y
         self.length = length
         self.width = width
@@ -142,7 +144,7 @@ class Road:
            Смена last_card_im. Создание unit"""
         self.last_card_im = card.image
         if card.player.number == 1:
-            self.left_unit_list.append(Unit(card.field.canvas, card.unit_type, 
+            self.left_unit_list.append(Unit(self.root, card.field.canvas, card.unit_type,
                                             self.begin, self.y))
         if card.player.number == 2:
             self.right_unit_list.append(Unit(card.field.canvas, card.unit_type, 
