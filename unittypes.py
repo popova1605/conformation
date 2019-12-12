@@ -13,6 +13,8 @@ def cost(unit_type):
         return 1
     if unit_type == "Mage":
         return 1
+    if unit_type == "Necromancer":
+        return 1
 
 
 def attack(unit_type):
@@ -29,6 +31,9 @@ def attack(unit_type):
                  'C:\Users\Artem\conformation\PNG\Mage\Attack\ attack3.png','C:\Users\Artem\conformation\PNG\Mage\Attack\ attack4.png',
                  'C:\Users\Artem\conformation\PNG\Mage\Attack\ attack5.png', 'C:\Users\Artem\conformation\PNG\Mage\Attack\ attack6.png',
                  'C:\Users\Artem\conformation\PNG\Mage\Attack\ attack7.png',]
+    if unit_type == "Necromancer":
+        image = ['C:\Users\Artem\conformation\1 Necromancer\Necromancer_Attack_1.png', 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_Attack_2.png',
+                 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_Attack_3.png', 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_Attack_4.png',]
     return image
 
 
@@ -51,7 +56,13 @@ def death(unit_type):
                  'C:\Users\Artem\conformation\PNG\Mage\Death\death5.png','C:\Users\Artem\conformation\PNG\Mage\Death\death6.png',
                  'C:\Users\Artem\conformation\PNG\Mage\Death\death7.png', 'C:\Users\Artem\conformation\PNG\Mage\Death\death8.png',
                  'C:\Users\Artem\conformation\PNG\Mage\Death\death9.png', 'C:\Users\Artem\conformation\PNG\Mage\Death\death10.png',]
+    if unit_type == "Necromancer":
+        image = ['C:\Users\Artem\conformation\1 Necromancer\Necromancer_death1.png', 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_death2.png',
+                 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_death3.png', 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_death4.png',
+                 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_death5.png', 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_death6.png',]
+
     return image
+
 
 
 def walk(unit_type):
@@ -67,6 +78,10 @@ def walk(unit_type):
         image = ['C:\Users\Artem\conformation\PNG\Mage\Walk\walk1.png', 'C:\Users\Artem\conformation\PNG\Mage\Walk\walk2.png',
                  'C:\Users\Artem\conformation\PNG\Mage\Walk\walk3.png', 'C:\Users\Artem\conformation\PNG\Mage\Walk\walk4.png',
                  'C:\Users\Artem\conformation\PNG\Mage\Walk\walk5.png','C:\Users\Artem\conformation\PNG\Mage\Walk\walk6.png']
+    if unit_type == "Necromancer":
+        image = ['C:\Users\Artem\conformation\1 Necromancer\Necromancer_walk1.png', 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_walk2.png',
+                 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_walk3.png','C:\Users\Artem\conformation\1 Necromancer\Necromancer_walk4.png',
+                 'C:\Users\Artem\conformation\1 Necromancer\Necromancer_walk5.png','C:\Users\Artem\conformation\1 Necromancer\Necromancer_walk6.png',]
     return image
 
 
@@ -76,6 +91,8 @@ def card(unit_type):
     if unit_type == "Knight":
         image = 0
     if unit_type == "Mage":
+        image = 0
+    if unit_type == "Necromancer":
         image = 0
     return image
 
@@ -87,6 +104,8 @@ def health(unit_type):
         health = 0
     if unit_type == "Mage":
         health = 0
+    if unit_type == "Necromancer":
+        health = 0
     return health
 
 
@@ -97,7 +116,8 @@ def force(unit_type):
         force = 0
     if unit_type == "Mage":
         force = 0
-
+    if unit_type == "Necromancer":
+        force = 0
     return force
 
 
@@ -108,6 +128,8 @@ def step(unit_type):
         step = 0
     if unit_type == "Mage":
         step = 0
+    if unit_type == "Necromancer":
+        step = 0
     return step
 
 
@@ -117,6 +139,8 @@ def money_cost(unit_type):
     if unit_type == "Knight":
         return 0
     if unit_type == "Mage":
+        return 0
+    if unit_type == "Necromancer":
         return 0
 
 def x(unit_type):
