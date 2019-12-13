@@ -27,7 +27,7 @@ def new_game(event):
     game = Game()
     dr1 = Deck(bf, "Rogue", 1, 40, 500)
     dk1 = Deck(bf, "Knight", 1, 100, 500)
-    dp1 = Deck(bf, "Mage", 1, 160, 500)
+    dp1 = Deck(bf, "Mage", 1, 161, 500)
     dr2 = Deck(bf, "Necromancer", 2, 660, 500)
     dk2 = Deck(bf, "Overseer", 2, 600, 500)
     dp2 = Deck(bf, "Elemental", 2, 540, 500)
