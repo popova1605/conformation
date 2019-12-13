@@ -34,8 +34,8 @@ def attack(unit_type):
         image = ['Necromancer\ecromancer_Attack_1.png', 'Necromancer\ecromancer_Attack_2.png',
                  'Necromancer\ecromancer_Attack_3.png', 'Necromancer\ecromancer_Attack_4.png']
     if unit_type == "Overseer":
-        image = ['Mega_Beholder\MegaBeholder_attack1.png','Mega_Beholder\MegaBeholder_attack2.png',
-                 'Mega_Beholder\MegaBeholder_attack3.png','Mega_Beholder\MegaBeholder_attack4.png']
+        image = ['Mega_Beholder\MegaBeholder_attack_1.png','Mega_Beholder\MegaBeholder_attack_2.png',
+                 'Mega_Beholder\MegaBeholder_attack_3.png','Mega_Beholder\MegaBeholder_attack_4.png']
     if unit_type == "Elemental":
         image = ['Elemental\Elemental_attack_1.png',
                   'Elemental\Elemental_attack_2.png',
