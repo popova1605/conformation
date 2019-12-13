@@ -34,8 +34,8 @@ def attack(unit_type):
         image = ['Necromancer\ecromancer_Attack_1.png', 'Necromancer\ecromancer_Attack_2.png',
                  'Necromancer\ecromancer_Attack_3.png', 'Necromancer\ecromancer_Attack_4.png']
     if unit_type == "Overseer":
-        image = ['Mega_Beholder\MegaBeholder_attack_1.png','Mega_Beholder\MegaBeholder_attack_2.png',
-                 'Mega_Beholder\MegaBeholder_attack_3.png','Mega_Beholder\MegaBeholder_attack_4.png']
+        image = ['Mega_Beholder\MegaBeholder_attack1.png','Mega_Beholder\MegaBeholder_attack2.png',
+                 'Mega_Beholder\MegaBeholder_attack3.png','Mega_Beholder\MegaBeholder_attack4.png']
     if unit_type == "Elemental":
         image = ['Elemental\Elemental_attack_1.png',
                   'Elemental\Elemental_attack_2.png',
@@ -108,49 +108,49 @@ def walk(unit_type):
 
 def card(unit_type):
     if unit_type == "Rogue":
-        image = ['Cards\ thief.png']
+        image = 0
     if unit_type == "Knight":
-        image = image = ['Cards\ Knight_Card.png']
+        image = 0
     if unit_type == "Mage":
-        image = ['Cards\ Mage.png']
+        image = 0
     if unit_type == "Necromancer":
-        image = ['Cards\ necromancer.png']
+        image = 0
     if unit_type == "Overseer":
-        image = ['Cards\ overseer.png']
+        image = 0
     if unit_type == "Elemental":
-        image = ['Cards\ elemental.png']
+        image = 0
     return image
 
 
 def health(unit_type):
     if unit_type == "Rogue":
-        health = 2
+        health = 0
     if unit_type == "Knight":
-        health = 4
+        health = 0
     if unit_type == "Mage":
-        health = 8
+        health = 0
     if unit_type == "Necromancer":
-        health = 1
+        health = 0
     if unit_type == "Overseer":
-        health = 5
+        health = 0
     if unit_type == "Elemental":
-        health = 6
+        health = 0
     return health
 
 
 def force(unit_type):
     if unit_type == "Rogue":
-        force = 2
+        force = 0
     if unit_type == "Knight":
-        force = 4
+        force = 0
     if unit_type == "Mage":
-        force = 4
+        force = 0
     if unit_type == "Necromancer":
-        force = 3
+        force = 0
     if unit_type == "Overseer":
-        force = 3
+        force = 0
     if unit_type == "Elemental":
-        rorce = 6
+        rorce = 0
     return force
 
 
@@ -168,36 +168,3 @@ def step(unit_type):
     if unit_type == "Elemental":
         step = 0
     return step
-
-
-def money_cost(unit_type):
-    if unit_type == "Rogue":
-        return 1
-    if unit_type == "Knight":
-        return 2
-    if unit_type == "Mage":
-        return 3
-    if unit_type == "Necromancer":
-        return 1
-    if unit_type == "Overseer":
-        return 2
-    if unit_type == "Elemental":
-        return 3
-
-
-def x(unit_type):
-    if unit_type == "":
-        x = 0
-    return x
-
-
-def additional_mana(unit_type):
-    if unit_type == "":
-        additional_mana = 0
-    return additional_mana
-
-
-def additional_money(unit_type):
-    if unit_type == "":
-        additional_money = 0
-    return additional_money

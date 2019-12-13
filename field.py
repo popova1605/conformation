@@ -59,24 +59,24 @@ class Buttle_field:
     def set_parametrs(self, game):
         """Изменяет значения text в money1_im, money2_im, mana1_im, mana2_im
            на значения, содержащиеся в game (экз. Game)"""
-        self.canvas.itemconfig(self.money1_im, text="Money:" + str(game.players[0].money))
-        self.canvas.itemconfig(self.money2_im, text="Money:" + str(game.players[1].money))
-        self.canvas.itemconfig(self.mana1_im, text="Mana:" + str(game.players[0].mana))
-        self.canvas.itemconfig(self.mana2_im, text="Mana:" + str(game.players[1].mana))
-        self.canvas.itemconfig(self.health1_im, text="Health:" + str(game.players[0].health))
-        self.canvas.itemconfig(self.health2_im, text="Health:" + str(game.players[1].health))
+        self.canvas.itemconfig(self.money1_im, text="Money:" +" "+ str(game.players[0].money))
+        self.canvas.itemconfig(self.money2_im, text="Money:" +" "+ str(game.players[1].money))
+        self.canvas.itemconfig(self.mana1_im, text="Mana:" +" "+ str(game.players[0].mana))
+        self.canvas.itemconfig(self.mana2_im, text="Mana:" +" "+ str(game.players[1].mana))
+        self.canvas.itemconfig(self.health1_im, text="Health:" +" "+ str(game.players[0].health))
+        self.canvas.itemconfig(self.health2_im, text="Health:" +" "+ str(game.players[1].health))
 
     def set_players_parametrs(self, player):
         """Изменяет значения text в money1_im, mana1_im, или mana2_im, money2_im
            на значения, содержащиеся в player (экз. Player)"""
         if player.number == 1:
-            self.canvas.itemconfig(self.money1_im, text="Money:" + str(player.money))
-            self.canvas.itemconfig(self.mana1_im, text="Mana:" + str(player.mana))
-            self.canvas.itemconfig(self.health1_im, text="Health:" + str(player.health))
+            self.canvas.itemconfig(self.money1_im, text="Money:" +" "+ str(player.money))
+            self.canvas.itemconfig(self.mana1_im, text="Mana:" +" "+ str(player.mana))
+            self.canvas.itemconfig(self.health1_im, text="Health:" +" "+ str(player.health))
         if player.number == 2:
-            self.canvas.itemconfig(self.money2_im, text="Money:" + str(player.money))
-            self.canvas.itemconfig(self.mana2_im, text="Mana:" + str(player.mana))
-            self.canvas.itemconfig(self.health2_im, text="Health:" + str(player.health))
+            self.canvas.itemconfig(self.money2_im, text="Money:" +" "+ str(player.money))
+            self.canvas.itemconfig(self.mana2_im, text="Mana:" +" "+ str(player.mana))
+            self.canvas.itemconfig(self.health2_im, text="Health:" +" "+ str(player.health))
 
 
 class Road:
