@@ -108,49 +108,49 @@ def walk(unit_type):
 
 def card(unit_type):
     if unit_type == "Rogue":
-        image = 0
+        image = ['Cards\ thief.png']
     if unit_type == "Knight":
-        image = 0
+        image = image = ['Cards\ Knight_Card.png']
     if unit_type == "Mage":
-        image = 0
+        image = ['Cards\ Mage.png']
     if unit_type == "Necromancer":
-        image = 0
+        image = ['Cards\ necromancer.png']
     if unit_type == "Overseer":
-        image = 0
+        image = ['Cards\ overseer.png']
     if unit_type == "Elemental":
-        image = 0
+        image = ['Cards\ elemental.png']
     return image
 
 
 def health(unit_type):
     if unit_type == "Rogue":
-        health = 0
+        health = 2
     if unit_type == "Knight":
-        health = 0
+        health = 4
     if unit_type == "Mage":
-        health = 0
+        health = 8
     if unit_type == "Necromancer":
-        health = 0
+        health = 1
     if unit_type == "Overseer":
-        health = 0
+        health = 5
     if unit_type == "Elemental":
-        health = 0
+        health = 6
     return health
 
 
 def force(unit_type):
     if unit_type == "Rogue":
-        force = 0
+        force = 2
     if unit_type == "Knight":
-        force = 0
+        force = 4
     if unit_type == "Mage":
-        force = 0
+        force = 4
     if unit_type == "Necromancer":
-        force = 0
+        force = 3
     if unit_type == "Overseer":
-        force = 0
+        force = 3
     if unit_type == "Elemental":
-        rorce = 0
+        rorce = 6
     return force
 
 
@@ -172,17 +172,19 @@ def step(unit_type):
 
 def money_cost(unit_type):
     if unit_type == "Rogue":
-        return 0
+        return 1
     if unit_type == "Knight":
-        return 0
+        return 2
     if unit_type == "Mage":
-        return 0
+        return 3
     if unit_type == "Necromancer":
-        return 0
+        return 1
     if unit_type == "Overseer":
-        return 0
+        return 2
     if unit_type == "Elemental":
-        return 0
+        return 3
+
+
 def x(unit_type):
     if unit_type == "":
         x = 0
