@@ -39,6 +39,7 @@ class Unit:
         self.st = 0
         self.to_die = 0
         self.fin = 1
+        self.attacked = 0
 
     def move(self, way):
         self.photolist = graphics.animation(unittypes.walk(self.unit_type))
@@ -77,7 +78,7 @@ class Unit:
         
 
     def kill(self):
-        if self.fin:
+        if self.fin and self.attacked:
             self.to_due = 1
             self.photolist = graphics.animation(unittypes.death(self.unit_type))
             self.st = 0
@@ -90,6 +91,7 @@ class Unit:
             self.photolist = graphics.animation(unittypes.attack(self.unit_type))
             self.st = 0
             self.ex_animation()
+            self.attacked = 1
         else: self.root.after(10, self.attak)
 
     def die(self):
