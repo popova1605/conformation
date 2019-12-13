@@ -50,6 +50,7 @@ class Buttle_field:
         harm = [0, 0]
         for road in self.roads:
             l = road.move_units()
+            road.full = 0
             harm[0] += l[0]
             harm[1] += l[1]
         game.players[0].health -= harm[0]
@@ -98,6 +99,7 @@ class Road:
         self.width = width
         self.left_unit_list = []
         self.right_unit_list = []
+        self.full = 0
 
     def move_units(self):
         """Вызов move для всех персонажей на дорожке.
@@ -141,7 +143,7 @@ class Road:
         self.last_card_im = card.image
         if card.player.number == 1:
             self.left_unit_list.append(Unit(self.root, card.field.canvas, card.unit_type,
-                                            self.begin, self.y))
+                                            self.begin, self.y, 1))
         if card.player.number == 2:
             self.right_unit_list.append(Unit(self.root, card.field.canvas, card.unit_type, 
                                             self.end, self.y))

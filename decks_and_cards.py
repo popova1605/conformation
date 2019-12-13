@@ -87,8 +87,9 @@ class Card:
         b = False
         for i in self.field.roads:
             if ((i.y + i.width/2 >= event.y)
-                    and (i.y - i.width/2 < event.y)):
+                    and (i.y - i.width/2 < event.y)) and i.full == 0:
                 i.catch_card(self)
+                i.full = 1
                 b = True
         self.hide()
 

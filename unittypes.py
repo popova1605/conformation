@@ -5,15 +5,15 @@ def cost(unit_type):
     if unit_type == "Rogue":
         return 1
     if unit_type == "Knight":
-        return 1
+        return 5
     if unit_type == "Mage":
-        return 1
+        return 7
     if unit_type == "Necromancer":
         return 1
     if unit_type == "Overseer":
-        return 1
+        return 5
     if unit_type == "Elemental":
-        return 1
+        return 7
 
 
 def attack(unit_type):

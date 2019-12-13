@@ -23,7 +23,7 @@ class Unit:
     photolist = None
     st = 0
 
-    def __init__(self, root, canvas, unit_type, x, y):
+    def __init__(self, root, canvas, unit_type, x, y, misplace=0):
         """Присваивает переданные значения полям экземпляра self,
            force, health и image получает по unit_type (FIXME вп0исать в unittypes.py
            нужные функции"""
@@ -34,6 +34,8 @@ class Unit:
         self.canv = canvas
         self.first_image = graphics.animation(unittypes.walk(self.unit_type))[0]
         self.image = graphics.init_sprite(self.x, self.y, self.canv, self.first_image)
+        if misplace:
+            canvas.move(self.image, 15, -15)
         self.it = 0
         self.photolist = None
         self.st = 0
@@ -42,6 +44,7 @@ class Unit:
         self.attacked = 0
 
     def move(self, way):
+        self.attacked = 0 #
         self.photolist = graphics.animation(unittypes.walk(self.unit_type))
         self.st = self.step / len(self.photolist)
         if way == 'right':
@@ -69,7 +72,7 @@ class Unit:
             self.it = 0
 
     def win(self):
-        if self.fin:
+        if self.fin:  # следующая анимация должна ждать конца предыдущей
             self.photolist = graphics.animation(unittypes.attack(self.unit_type))
             self.st = 0
             self.to_die = 1
@@ -78,8 +81,8 @@ class Unit:
         
 
     def kill(self):
-        if self.fin and self.attacked:
-            self.to_due = 1
+        if self.fin and self.attacked: #сначала атака, потом смерть
+            self.to_e = 1
             self.photolist = graphics.animation(unittypes.death(self.unit_type))
             self.st = 0
             self.ex_animation()
@@ -98,19 +101,16 @@ class Unit:
         self.canv.delete(self.image)
         self.fin = 1
 
-    def foo(self):
-        1+1
-
 
 
 def fight(unit1, unit2):
-    loosers = []
+
     """Битва персонажей.
        Из health каждого персонажа вычитается force второго.
        Если health перс. стало <=0, он проиграл.
        Возвращает список проигравших персонажей, если таких нет,
        вызывается рекурсивно"""
-
+    loosers = []
     unit1.attak()
     unit2.attak()
     if unit1.health <= unit2.force and unit2.health <= unit1.force:

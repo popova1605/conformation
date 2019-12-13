@@ -22,6 +22,7 @@ start_money = 1  # деньги в начале игры у каждого иг�
 start_mana = 1  # мана в начале игры у каждого игрока
 additional_mana = 1  # добавка маны после хода
 start_health = 3 #
+money_lim = 10
 
 
 class Game:
@@ -58,7 +59,8 @@ class Game:
            увеличивает поля mana обоих элементов players на self.add_mana.
            Меняет значение self.turn с 1 на 2 и наоборот """
         if self.turn == 1:
-            self.max_money += 1
+            if self.max_money < money_lim:
+                self.max_money += 1
             self.players[0].money = self.max_money
             self.players[0].mana += self.add_mana
             self.turn = 2
