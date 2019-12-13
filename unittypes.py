@@ -1,5 +1,6 @@
 from tkinter import*
 
+
 def cost(unit_type):
     """Стоимость"""
     if unit_type == "Rogue":
@@ -108,18 +109,19 @@ def walk(unit_type):
 
 def card(unit_type):
     if unit_type == "Rogue":
-        image = 0
+        image = ['Cards\ thief.png']
     if unit_type == "Knight":
-        image = 0
+        image = image = ['Cards\ Knight_Card.png']
     if unit_type == "Mage":
-        image = 0
+        image = ['Cards\ Mage.png']
     if unit_type == "Necromancer":
-        image = 0
+        image = ['Cards\ necromancer.png']
     if unit_type == "Overseer":
-        image = 0
+        image = ['Cards\ overseer.png']
     if unit_type == "Elemental":
-        image = 0
+        image = ['Cards\ elemental.png']
     return image
+
 
 
 def health(unit_type):
