@@ -21,7 +21,7 @@ class Player:
 start_money = 1  # деньги в начале игры у каждого игрока
 start_mana = 1  # мана в начале игры у каждого игрока
 additional_mana = 1  # добавка маны после хода
-start_health = 1 #
+start_health = 3 #
 
 
 class Game:

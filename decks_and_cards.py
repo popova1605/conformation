@@ -21,8 +21,8 @@ class Deck:
     im = None
     card = None
 
-    def __init__(self, field, owner, x, y):
-        self.unit_type = ""
+    def __init__(self, field, unit_type, owner, x, y):
+        self.unit_type = unit_type
         self.field = field
         Deck.field = field
         self.owner = owner
@@ -42,7 +42,6 @@ class Deck:
     def create_card(self):
         """Создание данной колодой карты, привязывание её move к <Motion>
                    и find_road к отпусканию кнопки мыши"""
-        print("!")
         Deck.card = Card(self)
         self.field.canvas.bind('<Motion>', Deck.card.move)
         self.field.canvas.bind('<ButtonRelease-1>', Deck.card.find_road)

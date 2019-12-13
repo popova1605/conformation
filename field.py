@@ -26,16 +26,16 @@ class Buttle_field:
     def __init__(self, root, canvas, h, w):
         """Создаёт всё вышеописанное"""
         self.roads = []
-        self.roads.append(Road(root, 1/9*h, w, h/6))
-        self.roads.append(Road(root, 3/9*h, w, h/6))
-        self.roads.append(Road(root, 5/9*h, w, h/6))
+        self.roads.append(Road(root, 3/9*h, w, h/7))
+        self.roads.append(Road(root, 9/18*h, w, h/7))
+        self.roads.append(Road(root, 6/9*h, w, h/7))
         self.canvas = canvas
-        canvas.create_line(0,1/9*h+h/12,800,1/9*h+h/12)
-        canvas.create_line(0,1/9*h-h/12,800,1/9*h-h/12)
-        canvas.create_line(0,3/9*h+h/12,800,3/9*h+h/12)
-        canvas.create_line(0,3/9*h-h/12,800,3/9*h-h/12)
-        canvas.create_line(0,5/9*h+h/12,800,5/9*h+h/12)
-        canvas.create_line(0,5/9*h-h/12,800,5/9*h-h/12)
+        canvas.create_line(0,6/18*h+h/14,800,6/18*h+h/14)
+        canvas.create_line(0,6/18*h-h/14,800,6/18*h-h/14)
+        canvas.create_line(0,9/18*h+h/14,800,9/18*h+h/14)
+        canvas.create_line(0,9/18*h-h/14,800,9/18*h-h/14)
+        canvas.create_line(0,6/9*h+h/14,800,6/9*h+h/14)
+        canvas.create_line(0,6/9*h-h/14,800,6/9*h-h/14)
         self.h_size = w
         self.v_size = h
         self.money1_im = canvas.create_text(w/6, h/20, text = "Money: 0")
@@ -109,7 +109,7 @@ class Road:
             i.move("left")
         for i in self.left_unit_list:
             for j in self.right_unit_list:
-                if abs(i.x-j.x) <= abs(i.step+j.step):
+                if abs(i.x-j.x) <= abs(i.step):
                     for k in fight(i, j):
                         k.kill()
                         if self.left_unit_list.count(k):
@@ -119,7 +119,7 @@ class Road:
         harm = [0,0]
         delist = []
         for i in self.left_unit_list:
-            if abs(i.x - self.end) < i.step:
+            if abs(i.x - self.end) < i.step/2:
                 i.win()
                 delist.append(i)
                 harm[1]+=1
@@ -127,7 +127,7 @@ class Road:
             self.left_unit_list.remove(i)
         delist = []
         for i in self.right_unit_list:
-            if abs(i.x - self.begin) < i.step:
+            if abs(i.x - self.begin) < i.step/2:
                 i.win()
                 delist.append(i)
                 harm[0]+=1
@@ -143,7 +143,7 @@ class Road:
             self.left_unit_list.append(Unit(self.root, card.field.canvas, card.unit_type,
                                             self.begin, self.y))
         if card.player.number == 2:
-            self.right_unit_list.append(Unit(card.field.canvas, card.unit_type, 
+            self.right_unit_list.append(Unit(self.root, card.field.canvas, card.unit_type, 
                                             self.end, self.y))
         card.player.money -= cost(card.unit_type)
         card.field.set_players_parametrs(card.player)
