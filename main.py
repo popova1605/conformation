@@ -54,11 +54,11 @@ def new_turn(event):
     if fail:
         finish_game()
         if fail == 1:
-            canvas.create_text(400, 300, text = "Выиграл игрок 1")
+            canvas.create_text(400, 300, text="Выиграл игрок 1")
         elif fail == 2:
-            canvas.create_text(400, 300, text = "Выиграл игрок 2")
+            canvas.create_text(400, 300, text="Выиграл игрок 2")
         else:
-            canvas.create_text(400, 300, text = "Ничья")
+            canvas.create_text(400, 300, text="Ничья")
     else:
         if game.turn == 1:
             activate_decks(game.players[0])
