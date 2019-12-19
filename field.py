@@ -2,6 +2,7 @@ from mathematical_parametrs import Game, Player
 from units import*
 from unittypes import cost
 import math
+from tkinter import*
 
 fight_distanse = 0
 
@@ -13,7 +14,6 @@ class Buttle_field:
        money1_im, money2_im, mana1_im, mana2_im - объекты соотв. надписей на canvas
     """
     roads = []
-    canvas = None
     v_size = 0
     h_size = 0
     money1_im = None
@@ -22,6 +22,7 @@ class Buttle_field:
     mana2_im = None
     health1_im = None
     health2_im = None
+    bg = None
 
     def __init__(self, root, canvas, h, w):
         """Создаёт всё вышеописанное"""
@@ -38,12 +39,12 @@ class Buttle_field:
         canvas.create_line(0,6/9*h-h/14,800,6/9*h-h/14)
         self.h_size = w
         self.v_size = h
-        self.money1_im = canvas.create_text(w/6, h/20, text = "Money: 0")
-        self.money2_im = canvas.create_text(w - w/6, h/20, text = "Money: 0")
-        self.mana1_im = canvas.create_text(w/6, h/10, text = "Mana: 0")
-        self.mana2_im = canvas.create_text(w - w/6, h/10, text = "Mana: 0")
-        self.health1_im = canvas.create_text(w/6, 3*h/20, text = "Health: 0")
-        self.health2_im = canvas.create_text(w - w/6, 3*h/20, text = "Health: 0")
+        self.money1_im = canvas.create_text(w/6, h/20, text = "Money: 0", font = 'Times 18')
+        self.money2_im = canvas.create_text(w - w/6, h/20, text = "Money: 0", font = 'Times 18')
+        self.mana1_im = canvas.create_text(w/6, h/10, text = "Mana: 0", font = 'Times 18')
+        self.mana2_im = canvas.create_text(w - w/6, h/10, text = "Mana: 0", font = 'Times 18')
+        self.health1_im = canvas.create_text(w/6, 3*h/20, text = "Health: 0", font = 'Times 18')
+        self.health2_im = canvas.create_text(w - w/6, 3*h/20, text = "Health: 0", font = 'Times 18')
 
     def move_roads(self, game):
         """Вызов move_units для всех дорожек; проверка на поражение"""

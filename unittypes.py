@@ -109,17 +109,17 @@ def walk(unit_type):
 
 def card(unit_type):
     if unit_type == "Rogue":
-        image = 'Cards\ thief.png'
+        image = 'Cards\hief.png'
     if unit_type == "Knight":
-        image = image = 'Cards\ Knight_Card.png'
+        image = image = 'Cards\Knight_Card.png'
     if unit_type == "Mage":
-        image = 'Cards\ Mage.png'
+        image = 'Cards\Mage.png'
     if unit_type == "Necromancer":
-        image = 'Cards\ necromancer.png'
+        image = 'Cards\ecromancer.png'
     if unit_type == "Overseer":
-        image = 'Cards\ overseer.png'
+        image = 'Cards\overseer.png'
     if unit_type == "Elemental":
-        image = 'Cards\ elemental.png'
+        image = 'Cards\elemental.png'
     return image
 
 

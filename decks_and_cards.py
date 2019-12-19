@@ -20,6 +20,7 @@ class Deck:
     ones = []
     x = 0
     y = 0
+    photo = None
     im = None
     card = None
 
@@ -30,7 +31,9 @@ class Deck:
         self.owner = owner
         self.x = x
         self.y = y
-        self.im = testgr.ca(self.field.canvas, x, y)
+        self.photo = PhotoImage(file=unittypes.card(self.unit_type))
+        self.photo = self.photo.subsample(8,8)
+        self.im = self.field.canvas.create_image(self.x+deck_height/2, self.y+deck_width/2, image=self.photo)
         Deck.ones.append(self)
 
     def is_clicked(self, event):
@@ -54,6 +57,7 @@ class Card:
     field = None
     player = None
     image = None
+    photo = None
     x = 0
     y = 0
 
@@ -64,7 +68,9 @@ class Card:
         self.x = deck.x
         self.y = deck.y
         self.player = deck.player
-        self.image = testgr.ca(self.field.canvas, self.x, self.y) #TEST
+        self.photo = PhotoImage(file=unittypes.card(self.unit_type))
+        self.photo = self.photo.subsample(8,8)
+        self.image = self.field.canvas.create_image(self.x, self.y, image=self.photo)
 
     def move(self, event):
         """Следить за тем, чтобы карта не выходила за пределы экрана и на чужую половину"""
@@ -78,7 +84,7 @@ class Card:
                 self.x = event.x
             if (event.y >= 0) and (event.y <= self.field.v_size - deck_height):
                 self.y = event.y
-        testgr.move_c(self.field.canvas, self.image, self.x, self.y)
+        self.field.canvas.coords(self.image, self.x, self.y)
 
     def find_road(self, event):
         """Перебирает дорожки, проверяя на какой находится центр карты,
