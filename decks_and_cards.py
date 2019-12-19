@@ -2,6 +2,8 @@ from tkinter import*
 import unittypes as u
 from units import Unit
 import testgr
+import unittypes
+import graphics
 # Размеры карты
 deck_height = 60
 deck_width = 40
@@ -28,7 +30,7 @@ class Deck:
         self.owner = owner
         self.x = x
         self.y = y
-        self.im = testgr.ca(field.canvas, x, y) #TEST
+        self.im = testgr.ca(self.field.canvas, x, y)
         Deck.ones.append(self)
 
     def is_clicked(self, event):

@@ -1,5 +1,6 @@
 # Вся графика - здесь!!!
 from tkinter import*
+import unittypes
 
 def amount(imagelist):
     i = 0
@@ -51,7 +52,8 @@ def move_sprite(x, y, canvas, image, imagefile):
     canvas.itemconfig(image, image=imagefile)
 
 
-
+def make_card():
+    pass
 
 
 

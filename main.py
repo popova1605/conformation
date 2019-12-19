@@ -5,7 +5,6 @@ import tkinter as tk
 import fileinput
 import time
 
-
 def main():
     global root, canvas, frame, start_button
     root = tk.Tk()
@@ -67,17 +66,13 @@ def new_turn(event):
 def finish_game():
     global game, bf
     fail = game.check_fail()
-    print(type(fail))
     canvas.delete(ALL)
     if fail == 1:
-        print('AAA')
         canvas.create_text(400, 300, text = 'Выиграл игрок 1')
     elif fail == 2:
-        print('AAA2')
         canvas.create_text(400, 300, text = "Выиграл игрок 2", font = 10)
     else:
-        print('AAA3')
-    canvas.create_text(400, 300, text = "Ничья", font = 10)
+        canvas.create_text(400, 300, text = "Ничья", font = 10)
     frame.pack()
     start_button.pack()
     turn_button1.pack_forget()
