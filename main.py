@@ -3,13 +3,14 @@ from decks_and_cards import*
 from field import*
 import tkinter as tk
 import fileinput
+import time
 
 
 def main():
     global root, canvas, frame, start_button
     root = tk.Tk()
     root.geometry('800x600')
-    canvas = tk.Canvas(root, bg='white')
+    canvas = tk.Canvas(root, bg='green')
     canvas.pack(fill=tk.BOTH, expand=1)
     if True:
         frame = tk.Frame(root)
@@ -18,6 +19,7 @@ def main():
         start_button.pack()
         start_button.bind("<Button-1>", new_game)
     root.mainloop()
+
 
 def new_game(event):
     global root, canvas, game, bf, turn_button1, turn_button2
@@ -47,12 +49,6 @@ def new_turn(event):
     fail = game.check_fail()
     if fail:
         finish_game()
-        if fail == 1:
-            canvas.create_text(400, 300, text = "Выиграл игрок 1", font = 10)
-        elif fail == 2:
-            canvas.create_text(400, 300, text = "Выиграл игрок 2", font = 10)
-        else:
-            canvas.create_text(400, 300, text = "Ничья", font = 10)
     else:
         if game.turn == 1:
             activate_decks(game.players[0])
@@ -60,7 +56,6 @@ def new_turn(event):
             turn_button1.bind("<Button-1>", new_turn)
             turn_button2.pack_forget()
             turn_button2.bind("<Button-1>", "")
-
         else:
             activate_decks(game.players[1])
             turn_button2.pack(side = tk.RIGHT)
@@ -71,10 +66,22 @@ def new_turn(event):
 
 def finish_game():
     global game, bf
+    fail = game.check_fail()
+    print(type(fail))
+    canvas.delete(ALL)
+    if fail == 1:
+        print('AAA')
+        canvas.create_text(400, 300, text = 'Выиграл игрок 1')
+    elif fail == 2:
+        print('AAA2')
+        canvas.create_text(400, 300, text = "Выиграл игрок 2", font = 10)
+    else:
+        print('AAA3')
+    canvas.create_text(400, 300, text = "Ничья", font = 10)
     frame.pack()
     start_button.pack()
-    canvas.delete(ALL)
-    turn_button.pack_forget()
-    
+    turn_button1.pack_forget()
+    turn_button2.pack_forget()
+
 
 main()
